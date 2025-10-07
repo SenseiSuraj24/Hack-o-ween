@@ -159,7 +159,7 @@
                 }
             });
 
-            // Prevent form submission if email is not verified
+            // Prevent form submission if email isn't verified
             document.getElementById('registrationForm').addEventListener('submit', (e) => {
                 if (!isEmailVerified) {
                     e.preventDefault();
