@@ -1,0 +1,599 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6; /* Light background */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Styling */
+.site-header {
+    background-color: #000000; /* Dark background to match the logo image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.logo {
+    /* No direct text styling needed anymore, but keeping the div for potential alignment */
+    display: flex; /* Helps align the image if needed */
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust height as needed */
+    /* If the image appears too wide, you might also set max-width: 100%; */
+}
+
+
+.main-nav a {
+    margin-left: 25px;
+    font-size: 1em;
+    font-weight: 400;
+    color: #ffffff; /* Changed to white for better contrast on dark header */
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #8c8c8c; /* Lighter grey for hover */
+}
+
+/* Hero Section (Main Content) Styling */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 70vh; /* Takes up most of the viewport height */
+    padding: 20px;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%); /* Light gradient background */
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #444;
+}
+
+/* Auth Buttons Styling */
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the buttons */
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 50px; /* Pill-shaped buttons */
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-login {
+    background-color: #007bff; /* Primary blue for Login */
+    color: white;
+    border-color: #007bff;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-register {
+    background-color: transparent;
+    color: #007bff;
+    border-color: #007bff; /* Blue border for Register */
+}
+
+.btn-register:hover {
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Footer Styling */
+.site-footer {
+    background-color: #343a40; /* Dark background */
+    color: #adb5bd;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav {
+        margin-top: 10px;
+    }
+
+    .main-nav a {
+        margin: 0 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    
+    .auth-buttons {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 15px;
+    }
+
+    .btn {
+        width: 80%; /* Make buttons wider */
+        margin: 0 auto;
+    }
+}
+
+
+/* --- REGISTRATION FORM STYLES --- */
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 80vh;
+    background-color: #f0f7ff; /* A lighter, healthcare-friendly background */
+}
+
+.registration-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px; /* Max width for the form container */
+}
+
+.registration-container h2 {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.registration-container p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.registration-form {
+    display: grid;
+    /* Two columns for most form groups */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    /* Make address field span both columns */
+    grid-column: 1 / -1; 
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.checkbox-group {
+    grid-column: 1 / -1; /* Span both columns */
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.full-width-btn {
+    grid-column: 1 / -1; /* Span both columns */
+    margin-top: 15px;
+}
+
+.login-prompt {
+    margin-top: 25px;
+    font-size: 1em;
+}
+
+.login-prompt a {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 500px) {
+    .registration-form {
+        /* On small screens, stack all fields in one column */
+        grid-template-columns: 1fr; 
+    }
+    
+    .form-section {
+        padding: 30px 15px;
+    }
+}
+/* --- OTP/EMAIL VERIFICATION STYLES --- */
+
+.email-input-group,
+.otp-input-group {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+    width: 100%;
+}
+
+.email-input-group input,
+.otp-input-group input {
+    flex-grow: 1; /* Makes the input field take up available space */
+}
+
+.btn-otp {
+    padding: 12px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.btn-otp:hover {
+    background-color: #0056b3;
+}
+
+.verify-btn {
+    background-color: #28a745; /* Green for verification */
+}
+
+.verify-btn:hover {
+    background-color: #1e7e34;
+}
+
+.btn-otp:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Style for status messages */
+.status-message {
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+    min-height: 1.2em; /* Prevents layout shift */
+}
+
+/* Style for disabled submit button */
+#submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #007bff; /* Keeps base color but makes it look disabled */
+}
+/* --- LOGIN FORM SPECIFIC STYLES (Appended to styles.css) --- */
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Smaller max width for a cleaner login form */
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.forgot-group {
+    text-align: right;
+    margin-top: -5px; /* Pull it slightly closer to the password field */
+}
+
+.forgot-group a {
+    color: #007bff;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.full-width-btn {
+    width: 100%; /* Ensures the button spans the container width */
+    margin-top: 10px;
+}
+
+.register-prompt {
+    margin-top: 25px;
+    font-size: 1em;
+}
+
+.register-prompt a {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Ensure the form-group styles from the registration page still apply */
+.login-container .form-group {
+    /* Override grid layout if present in the main form-group style */
+    display: flex; 
+    flex-direction: column;
+    text-align: left;
+}
+
+.hero-section {
+  background-image: url("bg_img.jpg");
+  background-size: cover;       /* makes it fill the area */
+  background-position: center;  /* centers it nicely */
+  background-repeat: no-repeat;
+  height: 100vh;                /* full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-section {
+  background-image: url("bg_img.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeInBg 2s ease-in forwards;
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Animation for each word in the heading */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.word:nth-child(3) {
+  animation: fadeUp 1s ease-out forwards, glow 2s ease-in-out infinite alternate 1s;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #3c00ff, 0 0 10px #3c00ff; }
+  to { text-shadow: 0 0 10px #3c00ff, 0 0 20px #3c00ff; }
+}
+
+/* Animate heading words */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Drop-down effect for paragraph text */
+.drop-text {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: dropDown 1s ease-out forwards;
+  animation-delay: 1.2s; /* waits until heading finishes */
+}
+
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- PATIENT DASHBOARD STYLES --- */
+
+.dashboard-section {
+    padding: 40px 5%;
+    background-color: #f8f9fa; /* Light grey background for contrast */
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.dashboard-header h1 {
+    font-size: 2.2em;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: #6c757d;
+}
+
+/* Key Metrics & Alerts */
+.dashboard-metrics {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.metric-card {
+    flex: 1; /* Makes cards grow equally */
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.metric-card.alert {
+    background-color: #fff3cd; /* Light warning yellow */
+    border-left: 5px solid #ffc107;
+    color: #856404;
+}
+
+.metric-card.info {
+    background-color: #d1ecf1; /* Light info blue */
+    border-left: 5px solid #17a2b8;
+    color: #0c5460;
+}
+
+.metric-card a {
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
+    color: inherit; /* Inherits the card's text color */
+}
+
+/* Main Feature Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block; /* Ensure the link fills the card */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15);
+}
+
+.feature-card .icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.feature-card h2 {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #6c757d;
+    font-size: 0.95em;
+}
+
+/* Specific button styling for Logout in the header */
+.site-header .main-nav .logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+.site-header .main-nav .logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .dashboard-metrics {
+        flex-direction: column;
+    }
+    .metric-card {
+        min-width: 100%;
+    }
+}
