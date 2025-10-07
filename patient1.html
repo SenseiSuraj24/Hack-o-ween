@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>John Song</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #b4e3f4;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100vh;
+    }
+    .profile-pic {
+      width: 50;
+      border-radius: 100px;
+      margin-bottom: 15px;
+    }
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .number {
+      font-size: 16px;
+      color: #555;
+    }
+    .menu {
+      margin-top: 30px;
+    }
+    .menu a {
+      display: block;
+      padding: 10px 0;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+    }
+    .menu a:hover {
+      background-color: #ddd;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+    .settings-button {
+  display: block;
+  margin-top: 30px;
+  padding: 10px 0;
+  color: #333;
+  text-decoration: none;
+  border-top: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.settings-button:hover {
+  background-color: #ddd;
+}
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-image: url( bg_img.jpg);
+  background-size: cover; /* makes image cover entire area */
+  background-position: center;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="Screenshot 2025-10-07 214205.png" alt="Profile Picture" class="profile-pic"/>
+    <div class="name">John Song</div>
+    <div class="number">+91 12345 67890</div>
+
+    <div class="menu">
+      <a href="#">Medications</a>
+      <a href="#">Appointments</a>
+      <a href="#">Emergency contacts</a>
+      <a href="#">Medical History</a>
+      <a href="#">Diagnosis</a>
+      <a href="settings.html" class="settings-button">Settings</a>
+
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Main page content goes here -->
+    Welcome to the main content area.
+
+  </div>
+</body>
+</html>
