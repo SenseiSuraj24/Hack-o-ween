@@ -439,8 +439,8 @@ a {
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 5px #3c00ff, 0 0 10px #3c00ff; }
-  to { text-shadow: 0 0 10px #3c00ff, 0 0 20px #3c00ff; }
+  from { text-shadow: 0 0 5px #00b7ff, 0 0 10px #00b7ff; }
+  to { text-shadow: 0 0 10px #00b7ff, 0 0 20px #00b7ff; }
 }
 
 /* Animate heading words */
@@ -475,7 +475,70 @@ a {
   }
 }
 /* --- PATIENT DASHBOARD STYLES --- */
+/* --- PATIENT DASHBOARD STYLES --- */
 
+/* ... (Keep all existing dashboard styles above this section) ... */
+
+/* Main Feature Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    /* Ensure a smooth transition for all color changes */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s; 
+    display: block;
+    color: inherit; /* Inherit color from body/default */
+}
+
+/* 🚀 KEY CHANGE: Hover Effect 🚀 */
+.feature-card:hover {
+    /* Lift and shadow remains the same for the "pop" effect */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2); 
+    
+    /* NEW: Background and text color change */
+    background-color: #007bff; /* Change background to primary blue */
+    color: white; /* Change all text inside the card to white */
+    border-color: #007bff; /* Match border color */
+}
+
+/* Ensure inner elements also inherit the white color on hover */
+.feature-card:hover h2,
+.feature-card:hover p {
+    color: white; 
+}
+
+/* We need to update the base color of h2 so it changes correctly */
+.feature-card h2 {
+    font-size: 1.4em;
+    color: #007bff; /* Original blue color */
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #6c757d; /* Original grey color */
+    font-size: 0.95em;
+}
+
+/* OPTIONAL: Add specific hover colors per card for variety 
+   You can remove the general .feature-card:hover styles above if you use these: 
+*/
+/*
+.feature-card.appointments:hover { background-color: #28a745; color: white; border-color: #28a745;} 
+.feature-card.records:hover { background-color: #ffc107; color: #333; border-color: #ffc107;}
+.feature-card.prescriptions:hover { background-color: #17a2b8; color: white; border-color: #17a2b8;}
+.feature-card.profile:hover { background-color: #6f42c1; color: white; border-color: #6f42c1;}
+*/
+
+/* ... (Keep all other dashboard styles below this section) ... */
 .dashboard-section {
     padding: 40px 5%;
     background-color: #f8f9fa; /* Light grey background for contrast */
@@ -595,5 +658,155 @@ a {
     }
     .metric-card {
         min-width: 100%;
+    }
+}
+/* Smooth trailing dots */
+.trail-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #000000; /* Teal */
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Burst dots (on click) */
+.burst-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #000000; /* Pink for burst */
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+/* --- UPDATE PROFILE PAGE STYLES --- */
+
+/* Reuses .form-section and basic input styles */
+
+.profile-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Wider container for more content */
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-section-group {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns inside each fieldset */
+    gap: 20px;
+}
+
+.form-section-group legend {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #007bff;
+    padding: 0 10px;
+}
+
+/* --- PROFILE PICTURE AND FORM STYLES REFINEMENT --- */
+
+/* Standardized container for profile picture area */
+.profile-picture-upload {
+    grid-column: 1 / -1; /* Spans both columns */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px; /* Increased padding */
+    margin-bottom: 5px; /* Added margin for separation */
+    border-bottom: 1px solid #f0f0f0; /* Softer border color */
+}
+
+/* Area containing the image and button */
+.profile-pic-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px; /* Slightly increased space */
+}
+
+/* Profile Image Styling */
+#currentProfilePic {
+    width: 130px; /* Slightly larger image */
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #007bff; /* Thicker, primary blue border */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transition 'all' for smoother effects */
+}
+
+#currentProfilePic:hover {
+    transform: scale(1.05); /* Slightly bigger hover effect */
+    border-color: #0056b3; /* Darker border on hover */
+}
+
+/* 'Change Picture' Button Styling */
+.btn-change-pic {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 24px; /* Slightly larger padding */
+    border-radius: 25px; /* More rounded button */
+    font-size: 1em; /* Slightly larger font */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    letter-spacing: 0.5px; /* Subtle spacing for professionalism */
+}
+
+.btn-change-pic:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Clearer hover shadow */
+}
+
+/* General Form Element Adjustments */
+
+/* Ensure full-width items span all grid columns */
+.form-section-group .full-width {
+    grid-column: 1 / -1; 
+}
+
+/* Save Button Styling */
+.save-btn {
+    /* Inherits general .btn-login styles but overrides color */
+    background-color: #28a745; /* Green for "Save" */
+    border-color: #28a745;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    letter-spacing: 1px;
+}
+
+.save-btn:hover {
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+    transform: translateY(-2px); /* Matches existing button hover effect */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 650px) {
+    .form-section-group {
+        grid-template-columns: 1fr; 
+    }
+    
+    .profile-picture-upload {
+        /* Keep as a centered block container */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }

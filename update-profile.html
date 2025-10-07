@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile - Vital Link</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <img src="vital-link-logo.png" alt="Vital Link Logo">
+        </div>
+        <nav class="main-nav">
+            <a href="patient-dashboard.html">Dashboard</a>
+            <a href="#">Appointments</a>
+            <a href="#">Billing</a>
+            <a href="#">Messages</a>
+            <a href="index.html" class="logout-btn">Log Out</a>
+        </nav>
+    </header>
+
+    <main class="form-section">
+        <div class="profile-container">
+            <h2>Update My Profile</h2>
+            <p>Review and update your personal information, contacts, and medical details.</p>
+
+            <form action="#" method="POST" enctype="multipart/form-data" class="profile-form">
+                
+<fieldset class="form-section-group">
+    <legend>Profile & Contact Details</legend>
+
+    <div class="profile-picture-upload full-width">
+        <div class="profile-pic-area">
+            <img src="placeholder-profile.png" alt="Current Profile Picture" id="currentProfilePic">
+            
+            <label for="profilePic" class="btn-change-pic">
+                Change Picture
+            </label>
+            <input type="file" id="profilePic" name="profilePic" accept="image/*" style="display: none;">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" value="1234567890" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" value="patient.name@email.com" required>
+    </div>
+</fieldset>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" value="1234567890" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" value="patient.name@email.com" required>
+                    </div>
+                </fieldset>
+
+
+                <fieldset class="form-section-group">
+                    <legend>Emergency Contact</legend>
+                    
+                    <div class="form-group">
+                        <label for="emergencyName">Contact Name</label>
+                        <input type="text" id="emergencyName" name="emergencyName" value="Jane Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emergencyPhone">Contact Number</label>
+                        <input type="tel" id="emergencyPhone" name="emergencyPhone" value="9876543210" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="emergencyRelationship">Relationship</label>
+                        <input type="text" id="emergencyRelationship" name="emergencyRelationship" value="Spouse" required>
+                    </div>
+                </fieldset>
+                
+                
+                <fieldset class="form-section-group">
+                    <legend>Medical Team & History</legend>
+                    
+                    <div class="form-group">
+                        <label for="currentDoctor">Current Primary Care Doctor</label>
+                        <input type="text" id="currentDoctor" name="currentDoctor" value="Dr. Ava Johnson (Cardiology)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="recentVisitDate">Date of Last Visit</label>
+                        <input type="date" id="recentVisitDate" name="recentVisitDate" value="2025-09-15">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="medicalHistory">Brief Medical History/Conditions</label>
+                        <textarea id="medicalHistory" name="medicalHistory" rows="5" placeholder="e.g., Type 2 Diabetes, Seasonal Allergies, Recent Surgeries...">Hypertension. No known allergies.</textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn btn-login full-width-btn save-btn">Save All Updates</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Vital Link. All Rights Reserved. | Privacy Policy</p>
+    </footer>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const profilePicInput = document.getElementById('profilePic');
+        const currentProfilePic = document.getElementById('currentProfilePic');
+
+        // Function to handle the image file selection and preview
+        const handleImagePreview = (event) => {
+            // Check if any files were selected
+            const file = event.target.files[0];
+
+            // 1. Basic validation: Check if a file exists and if it's an image
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+
+                // Set up the reader onload function
+                reader.onload = function(e) {
+                    // Update the image source to show the preview
+                    currentProfilePic.src = e.target.result;
+                    // Optional: Provide a small visual confirmation (e.g., console log)
+                    console.log(`New image selected: ${file.name}`);
+                };
+                
+                // Read the file content as a Data URL (base64 string)
+                reader.readAsDataURL(file);
+            } else if (file) {
+                // Handle case where a file was selected but it's not an image
+                alert("Please select a valid image file (JPEG, PNG, GIF).");
+                // Clear the file input for security and to allow re-selection
+                profilePicInput.value = ''; 
+            }
+            // If the user clicks cancel, file will be null, and nothing happens.
+        };
+
+        // Attach listener to the hidden file input
+        profilePicInput.addEventListener('change', handleImagePreview);
+
+        // Allow clicking the current profile picture to trigger the file selection dialog
+        currentProfilePic.addEventListener('click', () => {
+            profilePicInput.click();
+        });
+    });
+</script>
+
+</body>
+</html>

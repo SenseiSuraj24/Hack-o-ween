@@ -53,6 +53,71 @@
     <footer class="site-footer">
         <p>&copy; 2025 Vital Link. All Rights Reserved. | Privacy Policy</p>
     </footer>
+    <script>
+/* === Smooth Trailing Dots === */
+const trailCount = 15;
+const dots = [];
+
+for (let i = 0; i < trailCount; i++) {
+  const dot = document.createElement("div");
+  dot.classList.add("trail-dot");
+  document.body.appendChild(dot);
+  dots.push({ el: dot, x: 0, y: 0 });
+}
+
+let mouseX = 0, mouseY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.pageX;
+  mouseY = e.pageY;
+});
+
+function animateTrail() {
+  let x = mouseX, y = mouseY;
+  dots.forEach((dot, index) => {
+    dot.x += (x - dot.x) * 0.2;
+    dot.y += (y - dot.y) * 0.2;
+    dot.el.style.left = dot.x + "px";
+    dot.el.style.top = dot.y + "px";
+    dot.el.style.opacity = (trailCount - index) / trailCount;
+    dot.el.style.transform = `translate(-50%, -50%) scale(${1 - index / trailCount})`;
+
+    x = dot.x;
+    y = dot.y;
+  });
+  requestAnimationFrame(animateTrail);
+}
+
+animateTrail();
+
+/* === Click Burst Effect === */
+document.addEventListener("click", (e) => {
+  const burstCount = 10; // number of dots in burst
+  for (let i = 0; i < burstCount; i++) {
+    const burstDot = document.createElement("div");
+    burstDot.classList.add("burst-dot");
+    document.body.appendChild(burstDot);
+
+    // random direction
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 60 + Math.random() * 40;
+    const xMove = Math.cos(angle) * distance;
+    const yMove = Math.sin(angle) * distance;
+
+    burstDot.style.left = `${e.pageX}px`;
+    burstDot.style.top = `${e.pageY}px`;
+
+    // animate
+    burstDot.animate(
+      [
+        { transform: "translate(0, 0)", opacity: 1 },
+        { transform: `translate(${xMove}px, ${yMove}px) scale(0.3)`, opacity: 0 }
+      ],
+      { duration: 700 + Math.random() * 300, easing: "ease-out" }
+    ).onfinish = () => burstDot.remove();
+  }
+});
+</script>
 </body>
 
 </html>
