@@ -3,75 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doctor Landing Page</title>
+  <title>Doctor Landing Page - Vital Link</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    .box{
-      width: 350px;
-      height: 350px;
-      border-radius: 50px;
-      border: 10px solid #c4e0ec;
-      background-color: #5fafeb;
-      margin: 7px;
-      padding: 10px;
-      display: inline-block; /* makes boxes appear side by side */
-      box-sizing: border-box;
-      box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      color: #333;
-      text-align: center;
-      line-height: 100px; /* vertically center text */
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #f6fbff;
     }
-    
-.box-img {
-  display: block;
-  width: 60%;          /* or desired width smaller than box */
-  height: auto;
-  border-radius: 150px ;
-  margin: 0 auto 10px; /* 0 top/bottom margin, auto left/right centers it, 10px bottom margin */
-  object-fit: cover;
-}
-
-
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #000000;
+      padding: 16px 32px;
+      box-shadow: 0 2px 8px rgba(90,175,235,0.06);
+    }
+    .logo img {
+      height: 48px;
+      vertical-align: middle;
+    }
+    .main-nav a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 16px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+    .main-nav a.logout-btn {
+      background: #fff;
+      color: #5fafeb;
+    }
+    .main-nav a:hover {
+      background: rgba(255,255,255,0.13);
+    }
+    .dashboard-section {
+      padding: 32px 10%;
+    }
+    .dashboard-header {
+      margin-bottom: 24px;
+    }
+    .dashboard-header h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #225ea5;
+    }
+    .dashboard-header p {
+      margin: 0;
+      color: #507190;
+      font-size: 1.1rem;
+    }
+    .doctor-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: flex-start;
+    }
+    .box {
+      width: 270px;
+      height: 340px;
+      border-radius: 32px;
+      border: 7px solid #c4e0ec;
+      background-color: #5fafeb;
+      margin: 0;
+      padding: 20px 10px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      box-shadow: 4px 4px 12px rgba(40, 100, 160, 0.13);
+      font-size: 17px;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.12s, box-shadow 0.12s;
+      position: relative;
+      overflow: hidden;
+    }
+    .box:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(40,100,160,0.16);
+      background: #3a8edb;
+    }
+    .box-img {
+      display: block;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 2px 8px rgba(34,94,165,0.09);
+      background: #fff;
+    }
+    /* Card names/text */
+    .box span,
+    .box div {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: #fff;
+      font-weight: 600;
+    }
+    .site-footer {
+      background: #e4f3fb;
+      color: #225ea5;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 1rem;
+      margin-top: 30px;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    @media (max-width: 900px) {
+      .dashboard-section { padding: 32px 4%; }
+      .doctor-grid { gap: 16px; }
+      .box { width: 98vw; max-width: 310px; }
+    }
   </style>
 </head>
 <body>
-  <a href="patient1.html" class="box">
-  <img src="Screenshot 2025-10-07 214205.png" alt="Patient 1" class="box-img" />
-  John Song
-</a>
+  <!-- Header with Logo and Navigation -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="vital-link-logo.png" alt="Vital Link Logo">
+    </div>
+    <nav class="main-nav">
+      <a href="#">Dashboard</a>
+      <a href="#">Appointments</a>
+      <a href="#">Patients</a>
+      <a href="#">Messages</a>
+      <a href="index.html" class="logout-btn">Log Out</a>
+    </nav>
+  </header>
 
-<a href="patient2.html" class="box">
-  <img src="Screenshot 2025-10-07 214230.png" alt="Patient 2" class="box-img" />
-  River Song
-</a>
+  <!-- Dashboard Main Section -->
+  <main class="dashboard-section">
+    <div class="dashboard-header">
+      <h1>Welcome Back, Doctor!</h1>
+      <p>Your centralized hub for managing your patients with Vital Link.</p>
+    </div>
 
-<a href="patient3.html" class="box">
-  <img src="Screenshot 2025-10-07 214250.png" alt="Patient 3" class="box-img" />
-  Amy Pond
-</a>
-<a href="patient4.html" class="box">
-  <img src="Screenshot 2025-10-07 214310.png" alt="Patient 4" class="box-img" />
-  Rory Pond
-</a>
+    <div class="doctor-grid">
+      <a href="patient1.html" class="box">
+        <img src="Screenshot 2025-10-07 214205.png" alt="Patient 1" class="box-img" />
+        <span>John Song</span>
+      </a>
+      <a href="patient2.html" class="box">
+        <img src="Screenshot 2025-10-07 214230.png" alt="Patient 2" class="box-img" />
+        <span>River Song</span>
+      </a>
+      <a href="patient3.html" class="box">
+        <img src="Screenshot 2025-10-07 214250.png" alt="Patient 3" class="box-img" />
+        <span>Amy Pond</span>
+      </a>
+      <a href="patient4.html" class="box">
+        <img src="Screenshot 2025-10-07 214310.png" alt="Patient 4" class="box-img" />
+        <span>Rory Pond</span>
+      </a>
+      <a href="patient4.html" class="box">
+        <img src="Screenshot 2025-10-07 214310.png" alt="Patient 4" class="box-img" />
+        <span>Rory Pond</span>
+      </a>
+      <!-- You can add more patient cards similarly -->
+    </div>
+  </main>
 
-
-  <a href="patient2.html" class="box">Patient Number 2 </a>
-  <a href="patient3.html" class="box">Patient Number 3 </a>
-  <a href="patient4.html" class="box">Patient Number 4 </a>
-  <a href="page2.html" class="box">Patient Number 5 </a>
-  <a href="page3.html" class="box">Patient Number 6 </a>
-  <a href="page1.html" class="box">Patient Number 7 </a>
-  <a href="page2.html" class="box">Patient Number 8 </a>
-  <a href="page3.html" class="box">Patient Number 9 </a>
-  <a href="page1.html" class="box">Patient Number 10 </a>
-  <a href="page2.html" class="box">Patient Number 11 </a>
-  <a href="page3.html" class="box">Patient Number 12 </a>
-
-
-
-
-
-
+  <footer class="site-footer">
+    <p>&copy; 2025 Vital Link. Your Health Portal.</p>
+  </footer>
 </body>
 </html>
