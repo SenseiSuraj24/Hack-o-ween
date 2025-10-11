@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Appointment | Vital Link</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="patient-dashboard">
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="dashboard-header">
+      <h1>Schedule Appointment</h1>
+      <div class="patient-info">
+
+      </div>
+    </header>
+
+    <section class="appointment-section">
+
+      <!-- LOGO ABOVE FORM -->
+      <div class="appointment-logo">
+       
+        <h2>Book Your Appointment</h2>
+      </div>
+
+      <!-- APPOINTMENT FORM -->
+      <div class="appointment-card">
+        <form id="appointmentForm">
+          <div class="form-group">
+            <label for="doctor">Select Doctor</label>
+            <select id="doctor" required>
+              <option value="">-- Choose Doctor --</option>
+              <option value="dr-smith">Dr. Emily Smith (Cardiologist)</option>
+              <option value="dr-jones">Dr. Michael Jones (Dermatologist)</option>
+              <option value="dr-patel">Dr. Anita Patel (Pediatrician)</option>
+              <option value="dr-rahul">Dr. Rahul Verma (Orthopedic)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reason">Reason for Visit</label>
+            <textarea id="reason" rows="4" placeholder="Describe your symptoms or reason for visit..." required></textarea>
+          </div>
+
+          <button type="submit" class="save-btn">Confirm Appointment</button>
+        </form>
+      </div>
+
+      <!-- CONFIRMATION MESSAGE -->
+      <div id="confirmation" class="confirmation-box" style="display:none;">
+        <h3>✅ Appointment Scheduled!</h3>
+        <p>Your appointment has been successfully booked with <strong id="docName"></strong>.</p>
+        <p><strong>Date:</strong> <span id="confDate"></span></p>
+        <p><strong>Time:</strong> <span id="confTime"></span></p>
+      </div>
+
+    </section>
+
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Vital Link. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- JS for confirmation -->
+  <script>
+    const form = document.getElementById('appointmentForm');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const doctor = document.getElementById('doctor');
+      const date = document.getElementById('date');
+      const time = document.getElementById('time');
+
+      document.getElementById('docName').textContent = doctor.options[doctor.selectedIndex].text;
+      document.getElementById('confDate').textContent = date.value;
+      document.getElementById('confTime').textContent = time.value;
+
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>

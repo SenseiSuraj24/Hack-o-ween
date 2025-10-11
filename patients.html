@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Patients | Vital Link</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="doctor-dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="vital-link-logo.png" alt="Vital Link Logo" class="sidebar-logo">
+      <h2>Vital Link</h2>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li><a href="doctor-dashboard.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+      <li><a href="patients.html" class="active"><i class="fas fa-user-injured"></i><span>Patients</span></a></li>
+      <li><a href="#"><i class="fas fa-calendar-check"></i><span>Appointments</span></a></li>
+      <li><a href="#"><i class="fas fa-file-medical"></i><span>Reports</span></a></li>
+      <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+      <li><a href="index.html"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="dashboard-header">
+      <h1>All Patients</h1>
+      <div class="doctor-info">
+        <img src="doctor-profile.jpg" alt="Doctor Profile" class="doctor-avatar">
+        <span>Dr. Emily Smith</span>
+      </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search patient by name..." id="searchInput">
+      <button>Search</button>
+    </div>
+
+    <!-- Patients Table -->
+    <section class="patients-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Last Visit</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="patientTableBody">
+          <tr>
+            <td>#1001</td>
+            <td>John Doe</td>
+            <td>45</td>
+            <td>Male</td>
+            <td>Oct 3, 2025</td>
+            <td><span class="status completed">Stable</span></td>
+            <td>
+              <button class="view-btn">View</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#1002</td>
+            <td>Mary Johnson</td>
+            <td>52</td>
+            <td>Female</td>
+            <td>Oct 5, 2025</td>
+            <td><span class="status pending">Needs Follow-up</span></td>
+            <td>
+              <button class="view-btn">View</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#1003</td>
+            <td>Michael Lee</td>
+            <td>38</td>
+            <td>Male</td>
+            <td>Oct 6, 2025</td>
+            <td><span class="status upcoming">Under Review</span></td>
+            <td>
+              <button class="view-btn">View</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Vital Link. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Optional Search Filter -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const rows = document.querySelectorAll('#patientTableBody tr');
+
+    searchInput.addEventListener('keyup', () => {
+      const term = searchInput.value.toLowerCase();
+      rows.forEach(row => {
+        const name = row.children[1].textContent.toLowerCase();
+        row.style.display = name.includes(term) ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
