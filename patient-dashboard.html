@@ -20,12 +20,32 @@
             <a href="index.html" class="logout-btn">Log Out</a>
         </nav>
     </header>
+<!-- Add this in your HTML just after <header>, before <main> -->
+
+<!-- Hamburger Menu Icon -->
+<div class="hamburger" id="hamburger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Sidebar Menu (hidden by default, slides in on click) -->
+<nav class="sidebar-menu" id="sidebar-menu">
+    <ul>
+        <li><a href="#"><span class="icon">🩺</span>Near By Doctor</a></li>
+        <li><a href="analyzer.html"><span class="icon">📊</span>Analyzer</a></li>
+        <li><a href="#"><span class="icon">🥦</span>NutriScan</a></li>
+        <li><a href="#"><span class="icon">⚙️</span>Settings</a></li>
+    </ul>
+</nav>
 
     <main class="dashboard-section">
         <div class="dashboard-header">
             <h1>Welcome Back, Patient Name!</h1>
             <p>Your centralized hub for managing your health with Vital Link.</p>
         </div>
+
+<!-- Sidebar Menu End -->
 
         <div class="dashboard-metrics">
             <div class="metric-card alert">
@@ -73,6 +93,26 @@
     <footer class="site-footer">
         <p>&copy; 2025 Vital Link. Your Health Portal.</p>
     </footer>
+<script>
+const hamburger = document.getElementById('hamburger-menu');
+const sidebar = document.getElementById('sidebar-menu');
+
+// Optional: for blackout overlay
+const menuOverlay = document.createElement('div');
+menuOverlay.classList.add('menu-overlay');
+document.body.appendChild(menuOverlay);
+
+hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
+});
+
+// Clicking overlay also closes sidebar
+menuOverlay.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    menuOverlay.classList.remove('active');
+});
+</script>
 
 </body>
 </html>

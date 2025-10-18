@@ -1,0 +1,64 @@
+<!-- Wrap everything in .analyzer-app for CSS scoping -->
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<div class="analyzer-app">
+    <div class="container">
+        <header>
+            <span class="logo">💗</span>
+            <h1>Heart Attack Risk Analyzer</h1>
+        </header>
+        <div class="card">
+            <div class="language-select">
+                <label>Choose Language</label>
+                <div>
+                    <input type="radio" name="lang" id="en" checked>
+                    <label for="en">English</label>
+                </div>
+            </div>
+        </div>
+        <div class="card form-area">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="0" max="120">
+
+            <label>Gender (1 = Male, 0 = Female)</label>
+            <div class="gender-row">
+                <input type="radio" name="gender" id="male" value="1">
+                <label for="male">1</label>
+                <input type="radio" name="gender" id="female" value="0">
+                <label for="female">0</label>
+            </div>
+
+            <label for="heartrate">Heart Rate</label>
+            <input type="number" id="heartrate" min="0">
+            <label for="sbp">Systolic BP</label>
+            <input type="number" id="sbp" min="0">
+            <label for="dbp">Diastolic BP</label>
+            <input type="number" id="dbp" min="0">
+            <label for="sugar">Blood Sugar</label>
+            <input type="number" id="sugar" min="0">
+            <label for="ckmb">CK-MB</label>
+            <input type="number" id="ckmb" min="0">
+            <label for="troponin">Troponin</label>
+            <input type="number" id="troponin" min="0">
+
+            <button class="main-btn">Analyze Risk</button>
+        </div>
+        <div class="card">
+            <label for="result">Prediction Result</label>
+            <textarea id="result" rows="2" readonly></textarea>
+        </div>
+        <!-- Download Report button outside card, wide and distinct -->
+        <div class="wide-btn-row">
+            <button class="main-btn wide-btn">Download Report</button>
+        </div>
+        <!-- Full Report card below the button -->
+        <div class="card report-section">
+            <label for="fullreport">Full Report</label>
+            <textarea id="fullreport" rows="3" readonly></textarea>
+        </div>
+    </div>
+</div>
+<footer class="site-footer">
+    <p>&copy; 2025 Vital Link. All Rights Reserved. | Privacy Policy</p>
+</footer>
