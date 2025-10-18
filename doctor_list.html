@@ -1,33 +1,78 @@
-      <p>Your centralized hub for managing your patients with Vital Link.</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Health Dashboard - Vital Link</title>
+    <link rel="stylesheet" href="styles.css"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    </head>
+<body>
 
-    <div class="doctor-grid">
-      <a href="patient1.html" class="box">
-        <img src="Screenshot 2025-10-07 214205.png" alt="Patient 1" class="box-img" />
-        <span>John Song</span>
-      </a>
-      <a href="patient2.html" class="box">
-        <img src="Screenshot 2025-10-07 214230.png" alt="Patient 2" class="box-img" />
-        <span>River Song</span>
-      </a>
-      <a href="patient3.html" class="box">
-        <img src="Screenshot 2025-10-07 214250.png" alt="Patient 3" class="box-img" />
-        <span>Amy Pond</span>
-      </a>
-      <a href="patient4.html" class="box">
-        <img src="Screenshot 2025-10-07 214310.png" alt="Patient 4" class="box-img" />
-        <span>Rory Pond</span>
-      </a>
-      <a href="patient4.html" class="box">
-        <img src="Screenshot 2025-10-07 214310.png" alt="Patient 4" class="box-img" />
-        <span>Rory Pond</span>
-      </a>
-      <!-- You can add more patient cards similarly -->
-    </div>
-  </main>
+    <header class="site-header">
+        <div class="logo">
+            <img src="vital-link-logo.png" alt="Vital Link Logo">
+        </div>
+        <nav class="main-nav">
+            <a href="#">Dashboard</a>
+            <a href="#">Appointments</a>
+            <a href="#">Billing</a>
+            <a href="#">Messages</a>
+            <a href="index.html" class="logout-btn">Log Out</a>
+        </nav>
+    </header>
 
-  <footer class="site-footer">
-    <p>&copy; 2025 Vital Link. Your Health Portal.</p>
-  </footer>
+    <main class="dashboard-section">
+        <div class="dashboard-header">
+            <h1>Welcome Back, Patient Name!</h1>
+            <p>Your centralized hub for managing your health with Vital Link.</p>
+        </div>
+
+        <div class="dashboard-metrics">
+            <div class="metric-card alert">
+                <h3>🔔 Alert: New Message</h3>
+                <p>Dr. Smith sent follow-up instructions regarding your lab results.</p>
+                <a href="#">View Message →</a>
+            </div>
+            <div class="metric-card info">
+                <h3>🗓 Next Appointment</h3>
+                <p>Cardiology Follow-up</p>
+                <p>Date: **Oct 25, 2025 at 10:00 AM**</p>
+                <a href="#">Reschedule / Cancel →</a>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            
+            <a href="#" class="feature-card appointments">
+                <div class="icon">📅</div>
+                <h2>Schedule Appointment</h2>
+                <p>Book new visits with your primary care physician or specialists.</p>
+            </a>
+            
+            <a href="#" class="feature-card records">
+                <div class="icon">📄</div>
+                <h2>My Medical Records</h2>
+                <p>View test results, immunization history, and clinical notes.</p>
+            </a>
+            
+            <a href="#" class="feature-card prescriptions">
+                <div class="icon">💊</div>
+                <h2>Prescriptions</h2>
+                <p>Request refills and check the status of your current medications.</p>
+            </a>
+            
+            <a href="#" class="feature-card profile">
+                <div class="icon">👤</div>
+                <h2>Update Profile</h2>
+                <p>Manage your contact details, insurance, and emergency contacts.</p>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Vital Link. Your Health Portal.</p>
+    </footer>
+
 </body>
 </html>
